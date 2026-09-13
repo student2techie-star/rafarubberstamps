@@ -9,6 +9,7 @@ import HowItWorks from "../components/HowItWorks";
 import FAQ from "../components/FAQ";
 import { SERVICES } from "../data/services";
 import { GALLERY_ITEMS } from "../data/gallery";
+import { heroImg, getImgUrl } from "../utils/image";
 import { BUSINESS, SOCIAL_LINKS } from "../config";
 
 export default function Home() {
@@ -74,7 +75,7 @@ export default function Home() {
           <div className="hero-visual">
             <div className="hero-image-wrapper">
               <img
-                src="/images/hero.jpg"
+                src={heroImg}
                 alt="Custom wooden and rubber stamp impression seal made by Rafa Rubber Stamps Tenkasi"
                 className="hero-main-img"
                 loading="eager"
@@ -144,7 +145,7 @@ export default function Home() {
           <div className="gallery-preview-grid">
             {GALLERY_ITEMS.slice(0, 3).map((item) => (
               <div key={item.id} className="gallery-preview-card">
-                <img src={item.image} alt={item.alt} loading="lazy" />
+                <img src={getImgUrl(item.image)} alt={item.alt} loading="lazy" />
                 <div className="gallery-overlay">
                   <span className="gallery-category">{item.category}</span>
                   <h4 className="gallery-title">{item.title}</h4>
@@ -161,7 +162,7 @@ export default function Home() {
           <div className="about-preview-image">
             <div className="about-img-box">
               <img
-                src="/images/hero.jpg"
+                src={heroImg}
                 alt="Rafa Rubber Stamps Tenkasi Studio Workshop"
                 loading="lazy"
               />

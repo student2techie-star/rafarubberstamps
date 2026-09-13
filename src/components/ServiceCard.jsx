@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Stamp, Briefcase, Palette, Droplets, FileCheck, Sparkles } from "lucide-react";
+import { heroImg } from "../utils/image";
 
 const ICON_MAP = {
   Stamp: Stamp,
@@ -18,7 +19,7 @@ export default function ServiceCard({ service }) {
     <div className="service-card">
       <div className="service-card-image-wrap">
         <img
-          src="/images/hero.jpg"
+          src={heroImg}
           alt={`${service.title} by Rafa Rubber Stamps Tenkasi`}
           loading="lazy"
           className="service-card-img"

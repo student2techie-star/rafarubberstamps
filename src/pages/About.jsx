@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Truck, Award, Sparkles, MessageSquare, Star } from "lucide-react";
 import SEO from "../components/SEO";
 import FAQ from "../components/FAQ";
+import { heroImg } from "../utils/image";
 import { BUSINESS, SOCIAL_LINKS } from "../config";
 
 export default function About() {
@@ -84,7 +85,7 @@ export default function About() {
             <div className="about-story-visual">
               <div className="about-visual-frame">
                 <img
-                  src="/images/hero.jpg"
+                  src={heroImg}
                   alt="Rafa Rubber Stamps Tenkasi Studio Workshop"
                   loading="lazy"
                 />

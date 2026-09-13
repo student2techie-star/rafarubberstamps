@@ -495,7 +495,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 16px;
+  padding: 14px 18px;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -511,24 +511,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFFFF;
 }
 
-.fs-link-info {
-  display: flex;
-  flex-direction: column;
-}
-
 .fs-link-name {
-  font-size: 18px;
-  font-weight: 800;
-}
-
-.fs-link-desc {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 2px;
-}
-
-.fs-nav-link.active .fs-link-desc {
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
 }
 
 .fs-link-chevron {
@@ -1580,6 +1566,12 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 24px;
   right: 24px;
   z-index: 1500;
+}
+
+/* Hide floating WhatsApp chat bubble when full-screen mobile menu is open */
+body.mobile-menu-open .floating-whatsapp-container,
+body:has(.full-screen-menu-overlay) .floating-whatsapp-container {
+  display: none !important;
 }
 
 .floating-whatsapp-btn {

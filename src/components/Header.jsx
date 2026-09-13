@@ -25,11 +25,14 @@ export default function Header() {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.classList.add("mobile-menu-open");
     } else {
       document.body.style.overflow = "";
+      document.body.classList.remove("mobile-menu-open");
     }
     return () => {
       document.body.style.overflow = "";
+      document.body.classList.remove("mobile-menu-open");
     };
   }, [mobileMenuOpen]);
 
@@ -39,18 +42,18 @@ export default function Header() {
   }, [location]);
 
   const navLinks = [
-    { name: "Home", path: "/", desc: "Main Overview & Stamp Intro" },
-    { name: "About Us", path: "/about", desc: "Our 1960 Heritage & Process" },
-    { name: "Rubber Stamp Services", path: "/services", desc: "Custom, Logo & Self-Inking Stamps" },
-    { name: "Work Gallery", path: "/gallery", desc: "Photos & Sample Stamp Works" },
-    { name: "Order Custom Stamp", path: "/order", desc: "4-Step Online Stamp Booking" },
-    { name: "Contact Us", path: "/contact", desc: "Phone, Location & Social Profiles" }
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Rubber Stamp Services", path: "/services" },
+    { name: "Work Gallery", path: "/gallery" },
+    { name: "Order Custom Stamp", path: "/order" },
+    { name: "Contact Us", path: "/contact" }
   ];
 
   return (
     <header className={`site-header ${isScrolled ? "scrolled" : ""}`}>
       <div className="container header-container">
-        
+
         {/* Brand Logo */}
         <Link to="/" className="brand-logo" aria-label="Rafa Rubber Stamps Home">
           <div className="logo-badge">
@@ -120,7 +123,7 @@ export default function Header() {
             className="full-screen-menu-panel"
             onClick={(e) => e.stopPropagation()}
           >
-            
+
             {/* Header Row */}
             <div className="fs-menu-header">
               <div className="fs-brand">
@@ -160,10 +163,7 @@ export default function Header() {
                         className={`fs-nav-link ${isActive ? "active" : ""}`}
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <div className="fs-link-info">
-                          <span className="fs-link-name">{link.name}</span>
-                          <span className="fs-link-desc">{link.desc}</span>
-                        </div>
+                        <span className="fs-link-name">{link.name}</span>
                         <ChevronRight size={20} className="fs-link-chevron" />
                       </Link>
                     </li>
@@ -171,34 +171,6 @@ export default function Header() {
                 })}
               </ul>
             </nav>
-
-            {/* Footer Section with Prominent CTA & Quick Call/WhatsApp */}
-            <div className="fs-menu-footer">
-              <Link
-                to="/order"
-                className="btn btn-primary btn-lg btn-block fs-cta-btn"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span>Order Custom Stamp Now</span>
-                <ArrowRight size={18} />
-              </Link>
-
-              <div className="fs-contact-chips">
-                <a href={`tel:${BUSINESS.phoneRaw}`} className="fs-chip chip-phone">
-                  <Phone size={16} />
-                  <span>Call: {BUSINESS.phone}</span>
-                </a>
-                <a
-                  href={SOCIAL_LINKS.orderWhatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="fs-chip chip-wa"
-                >
-                  <MessageSquare size={16} />
-                  <span>WhatsApp Order</span>
-                </a>
-              </div>
-            </div>
 
           </div>
         </div>

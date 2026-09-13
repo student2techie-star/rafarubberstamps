@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { X, ArrowRight, Stamp } from "lucide-react";
-import SEO from "../components/SEO";
+import { X, ArrowRight } from "lucide-react";
 import { GALLERY_ITEMS, GALLERY_CATEGORIES } from "../data/gallery";
+import { getImgUrl } from "../utils/image";
+import SEO from "../components/SEO";
 
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -57,7 +58,7 @@ export default function Gallery() {
               >
                 <div className="gallery-img-wrap">
                   <img
-                    src={item.image}
+                    src={getImgUrl(item.image)}
                     alt={item.alt}
                     loading="lazy"
                   />
@@ -92,7 +93,7 @@ export default function Gallery() {
             >
               <X size={24} />
             </button>
-            <img src={selectedImage.image} alt={selectedImage.alt} />
+            <img src={getImgUrl(selectedImage.image)} alt={selectedImage.alt} />
             <div className="lightbox-caption">
               <span className="cat-pill">{selectedImage.category}</span>
               <h3>{selectedImage.title}</h3>
